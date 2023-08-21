@@ -1,0 +1,436 @@
+.section-title {
+  text-align: center;
+  padding-bottom: 30px;
+}
+
+.section-title h2 {
+  font-size: 32px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  padding-bottom: 20px;
+  position: relative;
+  color: rgb(9, 148, 9);
+}
+
+.section-title h2::before {
+  content: "";
+  position: absolute;
+  display: block;
+  width: 120px;
+  height: 1px;
+  background: #ddd;
+  bottom: 1px;
+  left: calc(50% - 60px);
+}
+
+.section-title h2::after {
+  content: "";
+  position: absolute;
+  display: block;
+  width: 40px;
+  height: 3px;
+  background: rgb(9, 148, 9);
+  bottom: 0;
+  left: calc(50% - 20px);
+}
+  /*--------------------------------------------------------------
+# pillars
+--------------------------------------------------------------*/
+.pillars {
+  padding: 80px 0;
+  background: url("../images/OIP\ \(1\).jpg") no-repeat;
+  background-position: center center;
+  background-size: cover;
+  position: relative;
+}
+
+.pillars::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.7);
+}
+
+
+.dropdown ul {
+display: block;
+position: absolute;
+left: 20px;
+top: calc(100% + 30px);
+margin: 0;
+padding: 10px 0;
+z-index: 99;
+opacity: 0;
+visibility: hidden;
+background: #fff;
+box-shadow: 0px 0px 30px rgba(127, 137, 161, 0.25);
+transition: 0.3s;
+}
+
+.dropdown ul li {
+min-width: 300px;
+list-style: none;
+}
+
+.dropdown ul a {
+padding: 10px 10px !important;
+font-size: 15px;
+font-weight: 500;
+text-transform: none;
+color: rgba(14, 134, 30, 0.904);
+border: none;
+}
+
+.dropdown ul a i {
+font-size: 10px;
+}
+
+.dropdown ul a:hover,
+.dropdown ul .active:hover,
+.dropdown ul li:hover>a {
+color: #000;
+}
+
+.dropdown:hover>ul {
+opacity: 1;
+top: 100%;
+visibility: visible;
+}
+
+.dropdown .dropdown ul {
+top: 0;
+left: calc(100% - 30px);
+visibility: hidden;
+}
+
+.dropdown .dropdown:hover>ul {
+opacity: 1;
+top: 0;
+left: 100%;
+visibility: visible;
+}
+
+#intoTheTrue{
+  margin-bottom: -2rem;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5),rgba(0, 0, 0, 0.5)), url('../images/lastSection.jpg'); 
+  height: 80vh;
+}
+.container{
+  padding-top: 7rem;
+}
+.true-header{
+  color: #fff;
+  font-family: constantia;
+}
+.true{
+  padding-top: 3rem;
+}
+.title{
+  color: #fff;
+  font-family: candara;
+  font-size: 20px
+}
+.true-description{
+  color: #fff;
+  font-family: concolas;
+}
+@media screen and (max-width: 600px){
+#intoTheTrue{
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5),rgba(0, 0, 0, 0.5)), url('../images/lastSection.jpg'); 
+  height: 60rem;
+  background-repeat: no-repeat;
+  background-position: center;
+
+}
+.container{
+  padding-top: 7rem;
+}
+.true-header{
+  color: #fff;
+  font-family: constantia;
+}
+.true{
+  padding-top: 3rem;
+}
+.title{
+  color: #fff;
+  font-family: candara;
+  font-size: 20px
+}
+.true-description{
+  color: #fff;
+  font-family: concolas;
+}
+}
+
+
+/*--------------------------------------------------------------
+# Services
+--------------------------------------------------------------*/
+.services{
+padding-bottom: 5rem;
+}
+.services .icon-box {
+text-align: center;
+border: 1px solid #d5eedd;
+padding: 80px 20px;
+transition: all ease-in-out 0.3s;
+}
+
+.services .icon-box .icon {
+margin: 0 auto;
+width: 64px;
+height: 64px;
+background: rgb(9, 148, 9);
+border-radius: 5px;
+transition: all 0.3s ease-out 0s;
+display: flex;
+align-items: center;
+justify-content: center;
+margin-bottom: 20px;
+transform-style: preserve-3d;
+}
+
+.services .icon-box .icon i {
+color: #fff;
+font-size: 28px;
+}
+
+.services .icon-box .icon::before {
+position: absolute;
+content: "";
+left: -8px;
+top: -8px;
+height: 100%;
+width: 100%;
+background: #fefefe;
+border-radius: 5px;
+transition: all 0.3s ease-out 0s;
+transform: translateZ(-1px);
+}
+
+.services .icon-box h4 {
+font-weight: 700;
+margin-bottom: 15px;
+font-size: 24px;
+}
+
+.services .icon-box h4 a {
+color: rgb(9, 148, 9);
+}
+
+.services .icon-box p {
+line-height: 24px;
+font-size: 14px;
+margin-bottom: 0;
+}
+
+.services .icon-box:hover {
+background: rgb(9, 148, 9);
+border-color: rgb(9, 148, 9);
+}
+
+.services .icon-box:hover .icon {
+background: #fff;
+}
+
+.services .icon-box:hover .icon i {
+color: rgb(9, 148, 9);
+}
+
+.services .icon-box:hover .icon::before {
+background: rgb(9, 128, 9);
+}
+
+.services .icon-box:hover h4 a,
+.services .icon-box:hover p {
+color: #fff;
+}
+
+/* ===========================================
+lectures section
+=========================================== */
+#lectures{
+  padding-top: 5rem;
+  padding-bottom: 5rem;
+}
+.lectures h3 {
+font-weight: 700;
+font-size: 28px;
+margin-bottom: 20px;
+font-family: var(--font-secondary);
+}
+
+.lectures .call-us {
+left: 10%;
+right: 10%;
+bottom: 0;
+background-color: #fff;
+box-shadow: 0px 2px 25px rgba(0, 0, 0, 0.08);
+padding: 20px;
+text-align: center;
+}
+
+.lectures .call-us h4 {
+font-size: 24px;
+font-weight: 700;
+margin-bottom: 5px;
+}
+
+.lectures .call-us p {
+font-size: 28px;
+font-weight: 700;
+color: var(--color-primary);
+}
+
+.lectures .content ul {
+list-style: none;
+padding: 0;
+}
+
+.lectures .content ul li {
+padding: 0 0 10px 30px;
+position: relative;
+}
+
+.lectures .content ul i {
+position: absolute;
+font-size: 20px;
+left: 0;
+top: -3px;
+color: var(--color-primary);
+}
+
+.lectures .content p:last-child {
+margin-bottom: 0;
+}
+
+.lectures .play-btn {
+width: 94px;
+height: 94px;
+background: radial-gradient(var(--color-primary) 50%, rgba(7, 182, 21, 0.801) 52%);
+border-radius: 50%;
+display: block;
+position: absolute;
+left: calc(50% - 47px);
+top: calc(50% - 47px);
+overflow: hidden;
+}
+
+.lectures .play-btn:before {
+content: "";
+position: absolute;
+width: 120px;
+height: 120px;
+-webkit-animation-delay: 0s;
+animation-delay: 0s;
+-webkit-animation: pulsate-btn 2s;
+animation: pulsate-btn 2s;
+-webkit-animation-direction: forwards;
+animation-direction: forwards;
+-webkit-animation-iteration-count: infinite;
+animation-iteration-count: infinite;
+-webkit-animation-timing-function: steps;
+animation-timing-function: steps;
+opacity: 1;
+border-radius: 50%;
+border: 5px solid rgba(0, 131, 116, 0.7);
+top: -15%;
+left: -15%;
+background: rgba(198, 16, 0, 0);
+}
+
+.lectures .play-btn:after {
+content: "";
+position: absolute;
+left: 50%;
+top: 50%;
+transform: translateX(-40%) translateY(-50%);
+width: 0;
+height: 0;
+border-top: 10px solid transparent;
+border-bottom: 10px solid transparent;
+border-left: 15px solid #fff;
+z-index: 100;
+transition: all 400ms cubic-bezier(0.55, 0.055, 0.675, 0.19);
+}
+
+.lectures .play-btn:hover:before {
+content: "";
+position: absolute;
+left: 50%;
+top: 50%;
+transform: translateX(-40%) translateY(-50%);
+width: 0;
+height: 0;
+border: none;
+border-top: 10px solid transparent;
+border-bottom: 10px solid transparent;
+border-left: 15px solid #fff;
+z-index: 200;
+-webkit-animation: none;
+animation: none;
+border-radius: 0;
+}
+
+.lectures .play-btn:hover:after {
+border-left: 15px solid var(--color-primary);
+transform: scale(20);
+}
+p{
+  font-family: lucida console;
+}
+
+@-webkit-keyframes pulsate-btn {
+0% {
+  transform: scale(0.6, 0.6);
+  opacity: 1;
+}
+
+100% {
+  transform: scale(1, 1);
+  opacity: 0;
+}
+}
+
+@keyframes pulsate-btn {
+0% {
+  transform: scale(0.6, 0.6);
+  opacity: 1;
+}
+
+100% {
+  transform: scale(1, 1);
+  opacity: 0;
+}
+}
+
+.lectures .trainer {
+  padding-top: 15px;
+  border-top: 1px solid #eef0ef;
+}
+
+.lectures .trainer .trainer-profile img {
+  max-width: 50px;
+  border-radius: 50px;
+}
+
+.lectures .trainer .trainer-profile span {
+  padding-left: 10px;
+  font-weight: 600;
+  font-size: 16px;
+  color: #5a6c60;
+}
+
+.lectures .trainer .trainer-rank {
+  font-size: 18px;
+  color: #657a6d;
+}
+@media screen and (max-width: 600px){
+  #lectures{
+  padding-top: 6rem;
+  }
+}
