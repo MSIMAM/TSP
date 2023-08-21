@@ -16,8 +16,8 @@ class AudioController extends Controller
      */
     public function index()
     {
-        $audios = DB::table('audio')
-                    ->join('schollars', 'audio.schollar_uuid', 'schollars.uuid')
+        return $audios = DB::table('audio')
+                    ->Join('schollars', 'audio.schollar_uuid', 'schollars.uuid')
                     ->join('programes', 'audio.programe_uuid', 'programes.uuid')
                     ->get();
         return view('Admin.Audios.index', [
