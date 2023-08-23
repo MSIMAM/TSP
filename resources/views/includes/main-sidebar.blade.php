@@ -33,7 +33,7 @@
                                 {{--=====================end roles link =============--}}
                                 {{--=====================user list link =============--}}
                                 <li>
-                                    <a class=" {{ Route::currentRouteNamed('admin.users.index') ? 'active' : '' }}"
+                                    <a class=" {{ Route::currentRouteNamed('admin.members.show') ? 'active' : '' }}"
                                         href="{{ route('admin.members.show') }}">
 
                                         <span>Users</span>

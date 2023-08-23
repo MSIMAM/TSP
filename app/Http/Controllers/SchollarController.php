@@ -79,7 +79,7 @@ class SchollarController extends Controller
     public function destroy(Schollar $schollar)
     {
         // $schollar->first();
-        return  Schollar::where('uuid', $schollar->uuid)->delete();
+        return  $schollar;
         return redirect()->back();
     }
 }

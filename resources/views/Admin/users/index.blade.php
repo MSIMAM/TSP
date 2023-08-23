@@ -196,7 +196,7 @@
                                                 <a class="me-3" href="" data-bs-toggle="modal" data-bs-target="#edit{{$user->uuid}}">
                                                     <img src="{{ asset('styles/assets/img/icons/edit.svg')}}" alt="img">
                                                 </a>
-                                                <a class="me-3 confirm-text" href="javascript:void(0);">
+                                                <a class="me-3 confirm-text" href="{{ route('admin.user.destroy', $user->id) }}">
                                                     <img src="{{ asset('styles/assets/img/icons/delete.svg')}}" alt="img">
                                                 </a>
                                             </td>

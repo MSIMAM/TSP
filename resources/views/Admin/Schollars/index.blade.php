@@ -117,14 +117,7 @@
                                             <a class="me-3" href="edituser.html" data-bs-toggle="modal" data-bs-target="#editSchollar{{ $schollar->uuid }}">
                                                 <img src="{{ asset('styles/assets/img/icons/edit.svg')}}" alt="img">
                                             </a>
-                                            <form action="{{ route('schollar.delete',$schollar->uuid) }}" method="POST">
-                                                @csrf
-                                                @method('delete')
-                                                <button type="submit" class="me-3" class="btn btn-success">
-                                                    <img src="{{asset('styles/assets/img/icons/delete.svg')}}" alt="img">
-                                                </button>
-                                            </form>
-                                            <a class="me-3 confirm-text" href="javascript:void(0);">
+                                            <a class="me-3 confirm-text" href="{{ route('schollar.delete', $schollar->id) }}">
                                                 <img src="{{ asset('styles/assets/img/icons/delete.svg')}}" alt="img">
                                             </a>
                                         </td>

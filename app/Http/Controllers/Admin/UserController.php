@@ -148,10 +148,10 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Role $role)
+    public function destroy(Role $role, User $user)
     {
-        $role->delete();
-        toast('Role Deleted', 'success');
+        $user->delete();
+        toast('User Deleted', 'success');
         return redirect()->back();
     }
 }

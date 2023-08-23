@@ -68,6 +68,7 @@ Route::namespace('App\Http\Controllers\Admin')->name('admin.')->prefix('admin')-
         Route::get('update-profile{uuid}', [IndexController::class, 'edit'])->name('edit');
         Route::get('update-user', [IndexController::class, 'updateUser'])->name('updateUser');
         Route::put('update', [IndexController::class, 'update'])->name('update');
+        Route::get('/users/{user}/delete', [UserController::class, 'destroy'])->name('user.destroy');
         //================End fetching users record==============================================
 
 
@@ -89,7 +90,7 @@ Route::namespace('App\Http\Controllers\Admin')->name('admin.')->prefix('admin')-
             Route::get('schollars', 'index')->name('schollar.index');
             Route::post('schollars/store', 'store')->name('schollar.store');
             Route::put('schollars/{uuid}/update', 'update')->name('schollar.update');
-            Route::delete('schollars/{uuid}/delete', 'destroy')->name('schollar.delete');
+            Route::get('/schollars/{schollar}/delete', 'destroy')->name('schollar.delete');
         });
         //====================================End Schollars Route===================================
 
