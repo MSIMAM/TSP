@@ -82,7 +82,7 @@ class ProgrameController extends Controller
     public function destroy(Programe $programe)
     {
         return $programe;
-        $programe->delete();
+        toast('Programe deleted', 'success');
         return redirect()->back();
 
     }

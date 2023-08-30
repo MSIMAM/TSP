@@ -2,8 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Lecture;
 use Illuminate\Http\Request;
+use Illuminate\Http\Testing\File;
 use Illuminate\Support\Facades\DB;
+use App\Http\Controllers\Controller;
+
 
 class FrontController extends Controller
 {
@@ -67,6 +71,14 @@ class FrontController extends Controller
     {
         //
         return view('pages.faydha');
+    }
+
+    public function downloadLecture(Lecture $lecture)
+    {
+        return $lecture;
+        // $file = File::file_put_contents($lecture);
+
+        // return response()->download(asset($file->path), $file->filename);
     }
 
     /**

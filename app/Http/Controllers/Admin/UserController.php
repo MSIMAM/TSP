@@ -22,28 +22,29 @@ class UserController extends Controller
      */
     public function index()
     {
-        $user= User::latest()->get();
-        $count_users            = User::count();
-        $count_roles            = Role::count();
-        $count_permissions      = Permission::count();
+
         // $count_lyrics           = Music::count();
 
-        return view('Admin.index', compact('user', 'count_users', 'count_roles',  'count_permissions'));
+        return view('Admin.index');
     }
 
     public function showMembers()
     {
         $user= User::latest()->get();
+        $role = Role::get();
         return view('Admin.users.index', [
-            'users' =>$user
+            'users' =>  $user,
+            'roles' =>  $role
         ]);
     }
     public function updateStatus(Request $request, User $user)
     {
-        //  return $request;
-        User::where('uuid', $request->uuid)->update([
+
+        $user->roles;
+        $user = User::where('id', $request->id)->update([
             'status' => $request->status
         ]);
+        // $user->syncRoles($request->roles);
 
         toast('Status Changed', 'success');
         return redirect()->back();
@@ -83,7 +84,6 @@ class UserController extends Controller
             'status'=>'Active'
         ]);
         $user->syncRoles($request->roles);
-        $user->assignRole('admin');
         toast('User Created', 'success');
         return redirect()->back();
     }

@@ -73,9 +73,11 @@
                                         <td>{{$role->name}}</td>
                                         <td>Owner</td>
                                         <td>
-                                            @foreach($role->permissions as $permission)
-                                                <span class="bg-secondary text-light rounded p-1">{{ $permission->name }}</span>
-                                            @endforeach
+                                            <div class="d-block justify-content-space-between align-items-center">
+                                                @foreach($role->permissions as $permission)
+                                                    <span class="bg-secondary text-light rounded p-1">{{ $permission->name }}</span>
+                                                @endforeach
+                                            </div>
                                         </td>
                                         <td>
                                             <span class="badges bg-lightgreen">Active</span>
@@ -120,21 +122,22 @@
                                                         </div>
                                                     </div>
                                                     <h3 class="text-xl my-4 text-gray-600">Permissions</h3>
-                                                        <div class="grid grid-cols-3 gap-4">
-                                                            @foreach($permissions as $permission)
-                                                                <div class="d-flex flex-col justify-cente">
-                                                                    <div class="d-flex flex-col">
-                                                                        <label class="inline-flex items-center mt-3">
-                                                                            <input type="checkbox" class="form-checkbox h-5 w-5 text-blue-600" name="permissions[]" value="{{$permission->id}}"
-                                                                                @if(count($role->permissions->where('id',$permission->id)))
-                                                                                checked
-                                                                                @endif
-                                                                            ><span class="ml-2 text-gray-700">{{ $permission->name }}</span>
-                                                                        </label>
+
+                                                                <div class="row">
+                                                                    <div class="form-group">
+                                                                        @foreach($permissions as $permission)
+                                                                            <label class="inline-flex items-center mt-3 mr-3" style="display: inline-flex; align-items:center;">
+                                                                                <input type="checkbox" class="form-checkbox h-5 w-5 text-blue-600" name="permissions[]" value="{{$permission->id}}"
+                                                                                    @if(count($role->permissions->where('id',$permission->id)))
+                                                                                    checked
+                                                                                    @endif
+                                                                                ><span class="ml-2 text-gray-700">&nbsp;{{ $permission->name }}</span>
+                                                                            </label>
+                                                                        @endforeach
                                                                     </div>
                                                                 </div>
-                                                            @endforeach
-                                                        </div>
+
+
                                                         <div class="mt-3">
                                                             <button type="submit" class="btn float-right px-5 py-1 rounded btn-success">Submit</button>
                                                         </div>

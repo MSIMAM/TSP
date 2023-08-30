@@ -39,6 +39,7 @@ Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('history', [FrontController::class, 'index'])->name('history');
 Route::get('lectures', [FrontController::class, 'lectures'])->name('lectures');
+Route::get('/lectures/{lecture}/download', [FrontController::class, 'downloadLecture'])->name('lecture.download');
 Route::get('index', [FrontController::class, 'home'])->name('index');
 Route::get('tidjaniya', [FrontController::class, 'tidjaniya'])->name('history-tidjaniya');
 Route::get('lineage', [FrontController::class, 'lineage'])->name('lineage');
@@ -64,7 +65,7 @@ Route::namespace('App\Http\Controllers\Admin')->name('admin.')->prefix('admin')-
 
         //================ fetching users record==============================================
         Route::get('users-index', [UserController::class, 'showMembers'])->name('members.show');
-        Route::put('status{uuid}', [UserController::class, 'updateStatus'])->name('status');
+        Route::put('/status/{id}', [UserController::class, 'updateStatus'])->name('status');
         Route::get('update-profile{uuid}', [IndexController::class, 'edit'])->name('edit');
         Route::get('update-user', [IndexController::class, 'updateUser'])->name('updateUser');
         Route::put('update', [IndexController::class, 'update'])->name('update');
@@ -76,17 +77,17 @@ Route::namespace('App\Http\Controllers\Admin')->name('admin.')->prefix('admin')-
 
         // Route::get('lectures', [Admin\LecturesController::class, 'getvideos'])->name('video.display');
         //====================================Programmes Route===================================
-        Route::controller(App\Http\Controllers\ProgrameController::class)->group(function(){
+        Route::controller(App\Http\Controllers\ProgrameController::class)->middleware('auth')->group(function(){
             Route::get('programmes', 'index')->name('programe.index');
             Route::post('programmes/store', 'store')->name('programe.store');
             Route::put('programmes/{uuid}/update', 'update')->name('programe.update');
             Route::get('programmes/fetch', 'create')->name('programe.fetch');
-            Route::delete('/programes/{programe}/delete', 'destroy')->name('programe.delete');
+            Route::get('/programes/{programe}/delete', 'destroy')->name('programe.delete');
         });
 
         //====================================End Programmes Route===================================
         //====================================Schollars Route========================================
-        Route::controller(App\Http\Controllers\SchollarController::class)->group(function(){
+        Route::controller(App\Http\Controllers\SchollarController::class)->middleware('auth')->group(function(){
             Route::get('schollars', 'index')->name('schollar.index');
             Route::post('schollars/store', 'store')->name('schollar.store');
             Route::put('schollars/{uuid}/update', 'update')->name('schollar.update');
@@ -94,11 +95,11 @@ Route::namespace('App\Http\Controllers\Admin')->name('admin.')->prefix('admin')-
         });
         //====================================End Schollars Route===================================
 
-        //=====================================Start Audio Route====================================
-        Route::controller(App\Http\Controllers\AudioController::class)->group( function(){
+        //=====================================Start Audios Route====================================
+        Route::controller(App\Http\Controllers\AudioController::class)->middleware('auth')->group( function(){
             Route::get('audios', 'index')->name('audios.index');
             Route::get('audios/create', 'create')->name('audios.create');
             Route::post('audios/store', 'store')->name('audios.store');
             // Route::get('audio/{filename}', 'getAudios')->name('audio.display');
         });
-        //=====================================End Audio Route======================================
+        //=====================================End Audios Route======================================

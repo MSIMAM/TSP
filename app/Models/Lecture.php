@@ -23,7 +23,7 @@ class Lecture extends Model
      */
     public function user()
     {
-        return $this->belongsTo(User::class, 'uuid', 'uuid');
+        return $this->belongsTo(User::class, 'user_uuid', 'uuid');
     }
 
 }

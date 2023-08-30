@@ -16,7 +16,7 @@
                                     <a class=" {{ Route::currentRouteNamed('admin.permissions.index') ? 'active' : '' }}"
                                         href="{{ route('admin.permissions.index') }}">
 
-                                        <span>Permission</span>
+                                        <span>Permissions</span>
                                     </a>
                                 </li>
                                 {{--=====================end permissions link =============--}}
@@ -54,7 +54,7 @@
                     </ul>
                 </li>
                 {{--=====================end lectures link =============--}}
-                @canany('Lectures Create')
+                @can('Lectures Create')
                     <li>
                         <a class="{{ Route::currentRouteNamed('admin.lectures.index') ? 'active' : '' }}"
                             href="{{ route('admin.lectures.index') }}">
@@ -62,7 +62,7 @@
                             <span>Lectures </span>
                         </a>
                     </li>
-                @endcanany
+                @endcan
                 {{--=====================end lectures link =============--}}
                 {{--================= messenger link ====================--}}
                 <li class="{{ Route::currentRouteNamed('chatify') ? 'active' : '' }}">
@@ -70,14 +70,14 @@
                 </li>
                 {{--=================end messenger link ====================--}}
                 {{--================= programme link ====================--}}
-                @can('Programme Access')
+                @canany('Programme access', 'Programme edit', 'Programme create', 'Programme delete')
                     <li class="{{ Route::currentRouteNamed('programe.index') ? 'active' : '' }}">
                         <a href="{{ route('programe.index') }}"><img src="{{asset('styles/assets/img/icons/product.svg')}}" alt="img"><span> Programmes</span> </a>
                     </li>
                 @endcan
                 {{--================= end programme link ====================--}}
                 {{--================= schollars link ====================--}}
-                @can('Schollar Access')
+                @canany('Schollar access', 'Schollar edit', 'Schollar create', 'Schollar delete')
                     <li class="{{ Route::currentRouteNamed('schollar.index') ? 'active' : '' }}">
                         <a href="{{ route('schollar.index') }}"><img src="{{asset('styles/assets/img/icons/users1.svg')}}" alt="img"><span> Schollars</span> </a>
                     </li>

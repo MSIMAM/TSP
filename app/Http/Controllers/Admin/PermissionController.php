@@ -32,7 +32,7 @@ class PermissionController extends Controller
      */
     public function index()
     {
-        $permission= Permission::latest()->get();
+        $permission = Permission::latest()->get();
 
         $title = "Delete Permission!";
         $text = "Are you sure you want to delete!";

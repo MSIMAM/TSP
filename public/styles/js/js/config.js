@@ -25,3 +25,14 @@ let config = {
     borderColor: '#eceef1'
   }
 };
+var emailError = document.getElementById('email-error');
+
+function validateEmail() {
+
+    var signup_email = getElementById('email-add').value;
+
+    if (signup_email.length != 11) {
+        emailError.innerHTML = "Email is required"
+        return false
+    }
+}

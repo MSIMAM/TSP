@@ -70,6 +70,17 @@
                                                 <span class="text-danger pt-2">{{ $message }}</span>
                                             @enderror
                                         </div>
+                                        <div class="row">
+                                            <h5>Roles</h5>
+                                            <div class="form-group">
+                                                @foreach ($roles as $role)
+                                                    <label class="inline-flex align-items-center mt-3 mr-3" style="display: inline-flex; align-items:center;">
+                                                        <input type="checkbox" class="form-checkbox h-5 w-5 text-blue-600" name="roles[]" value="{{$role->id}}"
+                                                        ><span class="ml-2 text-gray-700">&nbsp;{{ $role->name }}</span>
+                                                    </label>
+                                                @endforeach
+                                            </div>
+                                        </div>
                                         <button type="submit" class="btn btn-primary">Save</button>
                                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                                 </form>
@@ -173,9 +184,15 @@
                                                 </label>
                                             </td>
                                             <td class="productimgname">
-                                                <a href="javascript:void(0);" class="product-img">
-                                                    <img src="{{ asset('styles/assets/img/customer/customer1.jpg')}}" alt="product">
-                                                </a>
+                                                @if ($user->profile != "")
+                                                    <a href="javascript:void(0);" class="product-img">
+                                                        <img src="{{ Storage::url($user->profile)}}" alt="{{ $user->name }}">
+                                                    </a>
+                                                    @else
+                                                    <a href="javascript:void(0);" class="product-img">
+                                                        <img src="{{ asset('styles/assets/img/customer/customer1.jpg')}}" alt="{{ $user->name }}">
+                                                    </a>
+                                                @endif
                                             </td>
                                             <td>{{ $user->name }}</td>
                                             <td>+12163547758 </td>
@@ -193,7 +210,7 @@
                                                 </div>
                                             </td>
                                             <td>
-                                                <a class="me-3" href="" data-bs-toggle="modal" data-bs-target="#edit{{$user->uuid}}">
+                                                <a class="me-3" href="" data-bs-toggle="modal" data-bs-target="#edit{{$user->id}}">
                                                     <img src="{{ asset('styles/assets/img/icons/edit.svg')}}" alt="img">
                                                 </a>
                                                 <a class="me-3 confirm-text" href="{{ route('admin.user.destroy', $user->id) }}">
@@ -202,7 +219,7 @@
                                             </td>
                                         </tr>
                                         <!--Users Edit Modal -->
-                                        <div class="modal fade" id="edit{{$user->uuid}}" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
+                                        <div class="modal fade" id="edit{{$user->id}}" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
                                             <div class="modal-dialog modal-md" role="document">
                                                 <div class="modal-content">
                                                     <div class="modal-header">
@@ -212,7 +229,7 @@
                                                         </button>
                                                     </div>
                                                     <div class="modal-body">
-                                                        <form action="{{ route('admin.status',$user->uuid)}}" method="POST">
+                                                        <form action="{{ route('admin.status',$user->id)}}" method="POST">
                                                                 @csrf
                                                                 @method('PUT')
                                                                 <div class="form-group">
@@ -223,6 +240,20 @@
                                                                       <option name=>In Active</option>
                                                                     </select>
                                                                     {{-- <input class="form-control" type="text" value="{{ $user->status }}" name="status"> --}}
+                                                                </div>
+                                                                <div class="row">
+                                                                    <h5>Roles</h5>
+                                                                    <div class="form-group">
+                                                                        @foreach ($roles as $role)
+                                                                            <label class="inline-flex align-items-center mt-3 mr-3" style="display: inline-flex; align-items:center;">
+                                                                                <input type="checkbox" class="form-checkbox h-5 w-5 text-blue-600" name="roles[]" value="{{$role->id}}"
+                                                                                @if (count($user->roles->where('id', $role->id)))
+                                                                                    checked
+                                                                                @endif
+                                                                                ><span class="ml-2 text-gray-700">&nbsp;{{ $role->name }}</span>
+                                                                            </label>
+                                                                        @endforeach
+                                                                    </div>
                                                                 </div>
                                                                 <button type="submit" class="btn btn-primary">Save</button>
                                                                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>

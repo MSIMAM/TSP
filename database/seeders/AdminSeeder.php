@@ -38,6 +38,7 @@ class AdminSeeder extends Seeder
 
 
         $super_admin_role = Role::create(['name' => 'super admin', 'created_by' => 'Mubarak salisu imam']);
+        $admin_role = Role::create(['name' => 'admin', 'created_by' => 'Mubarak salisu imam']);
         $writer_role = Role::create(['name' => 'writer', 'created_by' => 'Mubarak salisu imam']);
 
 
@@ -55,6 +56,17 @@ class AdminSeeder extends Seeder
         $permission = Permission::create(['name' => 'Permission edit', 'created_by' => 'Mubarak salisu imam']);
         $permission = Permission::create(['name' => 'Permission create', 'created_by' => 'Mubarak salisu imam']);
         $permission = Permission::create(['name' => 'Permission delete', 'created_by' => 'Mubarak salisu imam']);
+
+        $permission = Permission::create(['name' => 'Programme access', 'created_by' => 'Mubarak Salisu Imam']);
+        $permission = Permission::create(['name' => 'Programme edit', 'created_by' => 'Mubarak Salisu Imam']);
+        $permission = Permission::create(['name' => 'Programme create', 'created_by' => 'Mubarak Salisu Imam']);
+        $permission = Permission::create(['name' => 'Programme delete', 'created_by' => 'Mubarak Salisu Imam']);
+
+        $permission = Permission::create(['name' => 'Schollar access', 'created_by' => 'Mubarak Salisu Imam']);
+        $permission = Permission::create(['name' => 'Schollar edit', 'created_by' => 'Mubarak Salisu Imam']);
+        $permission = Permission::create(['name' => 'Schollar create', 'created_by' => 'Mubarak Salisu Imam']);
+        $permission = Permission::create(['name' => 'Schollar delete', 'created_by' => 'Mubarak Salisu Imam']);
+
 
         $permission = Permission::create(['name' => 'Lectures Create', 'created_by' => 'Mubarak salisu imam']);
 

@@ -76,10 +76,10 @@ class SchollarController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Schollar $schollar)
+    public function destroy(Request $request, Schollar $schollar)
     {
         // $schollar->first();
-        return  $schollar;
+        Schollar::where('id', $schollar->id)->delete();
         return redirect()->back();
     }
 }

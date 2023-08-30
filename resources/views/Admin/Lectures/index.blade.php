@@ -29,7 +29,7 @@
                 <div class="container bordered">
                     <div class="main-video">
                         <div class="video">
-                            <video src="assets/videos/bbc.mp4" controls autoplay></video>
+                            <video src="{{ asset('styles/assets/videos/bbc.mp4')}}" controls autoplay></video>
                             <h3 class="title border-top">Ziyarar BBC Hausa A Raudar Sheikh Tidjani Dake Fez Morocco</h3>
                         </div>
                     </div>
@@ -37,7 +37,7 @@
                         @foreach ($lectures as  $lecture)
                             <div class="vid">
                                 <video src="{{ Storage::url($lecture->video) }}" muted></video>
-                                <h5 class="title">{{ $lecture->title }} <br><small style="font-size: 12px;" class="text-end">uploaded by: {{ $lecture->name }}</small></h5>
+                                <h5 class="title">{{ $lecture->title }} <br><small style="font-size: 12px;" class="text-end">uploaded by: {{ $lecture->name ? $lecture->name : null }}</small></h5>
                             </div>
                         @endforeach
                         <div class="pt-2"  style="display: flex; justify-content: center;">
@@ -62,7 +62,7 @@
     let title     = document.querySelector('.main-video .title');
 
     listVideo.forEach(video => {
-        video.onclick = () =>{
+        video.onclick = () => {
             listVideo.forEach(vid => vid.classList.remove('active'));
             video.classList.add('active');
 

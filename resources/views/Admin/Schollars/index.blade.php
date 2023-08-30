@@ -23,9 +23,9 @@
                         <h4>Schollars List</h4>
                         <h6>Manage Schollars</h6>
                     </div>
-                    @can('Schollar Create')
+                    @can('Schollar create')
                         <div class="page-btn">
-                            <a href="adduser.html" class="btn btn-added" data-bs-toggle="modal" data-bs-target="#addSchollar"><img src="{{ asset('styles/assets/img/icons/plus.svg') }}" alt="img"
+                            <a href="#" class="btn btn-added" data-bs-toggle="modal" data-bs-target="#addSchollar"><img src="{{ asset('styles/assets/img/icons/plus.svg') }}" alt="img"
                                     class="me-2">Add Schollar
                             </a>
                         </div>
@@ -114,12 +114,16 @@
                                             {{ $schollar->schollar_name }}
                                         </td>
                                         <td>
-                                            <a class="me-3" href="edituser.html" data-bs-toggle="modal" data-bs-target="#editSchollar{{ $schollar->uuid }}">
-                                                <img src="{{ asset('styles/assets/img/icons/edit.svg')}}" alt="img">
-                                            </a>
-                                            <a class="me-3 confirm-text" href="{{ route('schollar.delete', $schollar->id) }}">
-                                                <img src="{{ asset('styles/assets/img/icons/delete.svg')}}" alt="img">
-                                            </a>
+                                            @can('Schollar edit')
+                                                <a class="me-3" href="edituser.html" data-bs-toggle="modal" data-bs-target="#editSchollar{{ $schollar->uuid }}">
+                                                    <img src="{{ asset('styles/assets/img/icons/edit.svg')}}" alt="img">
+                                                </a>
+                                            @endcan
+                                            @can('Schollar delete')
+                                                <a class="me-3 confirm-text" href="{{ route('schollar.delete', $schollar->id) }}">
+                                                    <img src="{{ asset('styles/assets/img/icons/delete.svg')}}" alt="img">
+                                                </a>
+                                            @endcan
                                         </td>
                                     </tr>
 
@@ -162,6 +166,5 @@
             </div>
         </div>
     </div>
-
 
     @include('includes.myJsLinks')

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use App\Models\Audio;
 use App\Models\Programe;
 use App\Models\Schollar;

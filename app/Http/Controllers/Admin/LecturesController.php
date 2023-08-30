@@ -18,10 +18,12 @@ class LecturesController extends Controller
      */
     public function index()
     {
-        // retun $lectures = Lecture::with('user')->get();
+        // $lectures = Lecture::with('user')
+                            //->get()
+                            //->paginate(4);
 
         $lectures =  DB::table('lectures')
-        ->join('users', 'lectures.user_uuid', "=", 'users.uuid')
+         ->join('users', 'lectures.user_uuid', "=", 'users.uuid')
         ->paginate(4);
 
         return view('Admin.Lectures.index', compact('lectures'));

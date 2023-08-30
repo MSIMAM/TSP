@@ -23,7 +23,7 @@
                         <h4>Programme List</h4>
                         <h6>Manage Programme</h6>
                     </div>
-                    @can('Programme Create')
+                    @can('Programme create')
                         <div class="page-btn">
                             <a href="adduser.html" class="btn btn-added" data-bs-toggle="modal"
                                 data-bs-target="#addProgramme"><img src="{{ asset('styles/assets/img/icons/plus.svg') }}"
@@ -136,19 +136,18 @@
                                                 {{ $programe->schollar_name}}
                                             </td>
                                             <td>
-                                                <a class="me-3" href="edituser.html" data-bs-toggle="modal" data-bs-target="#editProgramme{{$programe->uuid, $schollar->uuid}}">
-                                                    <img src="{{ asset('styles/assets/img/icons/edit.svg') }}"
-                                                        alt="img">
-                                                </a>
-                                                <form action="{{ route('programe.delete', $programe->id) }}" method="POST">
-                                                    @csrf
-                                                    @method('delete')
-                                                    <button type="submit">save</button>
-                                                </form>
-                                                <a class="me-3 confirm-text" href="{{ route('programe.delete', $programe->uuid) }}">
-                                                    <img src="{{ asset('styles/assets/img/icons/delete.svg') }}"
-                                                        alt="img">
-                                                </a>
+                                                @can('Programme edit')
+                                                    <a class="me-3" href="edituser.html" data-bs-toggle="modal" data-bs-target="#editProgramme{{$programe->uuid, $schollar->uuid}}">
+                                                        <img src="{{ asset('styles/assets/img/icons/edit.svg') }}"
+                                                            alt="img">
+                                                    </a>
+                                                @endcan
+                                                @can('Programme delete')
+                                                    <a class="me-3 confirm-text" href="{{ route('programe.delete', $programe->id) }}">
+                                                        <img src="{{ asset('styles/assets/img/icons/delete.svg') }}"
+                                                            alt="img">
+                                                    </a>
+                                                @endcan
                                             </td>
                                         </tr>
                                         <!--=================================Edit Programme Modal  =======================-->

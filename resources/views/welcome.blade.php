@@ -11,13 +11,12 @@
 
   <!-- Favicons -->
   <link href="assets/img/logo.png" rel="icon">
-  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
 
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
 
   <!-- Vendor CSS Files -->
-  <link href="{{ asset('styles/assets/aos/aos.css')}}" rel="stylesheet">
+  <link href="{{ asset('styles/aos/aos.css')}}" rel="stylesheet">
   <link rel="stylesheet" href="{{asset('styles/assets/maincss/css/bootstrap.min.css')}}">
   {{-- <link href="{{ asset('styles/assets/bootstrap/css/bootstrap.min.css')}}" rel="stylesheet"> --}}
   <link href="{{ asset('styles/assets/bootstrap-icons/bootstrap-icons.css')}}" rel="stylesheet">
@@ -676,18 +675,17 @@
   <!-- Vendor JS Files -->
   <script src="{{ asset('styles/purecounter/purecounter_vanilla.js')}}"></script>
   <script src="{{ asset('styles/aos/aos.js')}}"></script>
-  <script src="{{ asset('styles/assets/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
+  <script src="{{ asset('styles/js/bootstrap.bundle.min.js')}}"></script>
   <script src="{{ asset('styles/glightbox/js/glightbox.min.js')}}"></script>
-  <script src="{{ asset('styles/isotope-layout/isotope.pkgd.min.js')}}"></script>
+  <script src="{{ asset('styles/assets/isotope-layout/isotope.pkgd.min.js')}}"></script>
   <script src="{{ asset('styles/swiper/swiper-bundle.min.js')}}"></script>
-  {{-- <script src="{{ asset('styles/assets/php-email-form/validate.js')}}"></script> --}}
-  <script src="{{ asset('styles/jquery/jquery.slim.min.js')}}"></script>
-  <script src="{{ asset('styles/assets/js/popper.min.js')}}"></script>
-  <script src="{{ asset('styles/assets/js/bootstrap.min.js')}}"></script>
+  <script src="{{ asset('styles/js/jquery.slim.min.js')}}"></script>
+  <script src="{{ asset('styles/js/popper.min.js')}}"></script>
+  <script src="{{ asset('styles/js/bootstrap.min.js')}}"></script>
 
   <!-- Website Main JS File -->
   <script src="{{ asset('styles/assets/mainjs/main.js')}}"></script>
-
+  @include('includes.myJsLinks')
 </body>
 
 </html>

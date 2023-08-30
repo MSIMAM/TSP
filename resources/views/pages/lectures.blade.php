@@ -29,15 +29,19 @@
         <div class="container">
             <div class="main-video">
                 <div class="video">
-                    <video src="assets/videos/bbc.mp4" controls autoplay></video>
-                        <h3 class="title border-top">Ziyarar BBC Hausa A Raudar Sheikh Tidjani Dake Fez Morocco</h3>
+                    <video src="{{ asset('styles/assets/videos/bbc.mp4')}}" controls autoplay></video>
+                        <div class="d-flex align-items-center border-top m-2">
+                            <h3 class="title">Ziyarar BBC Hausa A Raudar Sheikh Tidjani Dake Fez Morocco</h3>
+                            <a href="" class="icon"><i class="bx bx-download" style="font-size: 20px; float-right"></i></a>
+                        </div>
                 </div>
             </div>
             <div class="video-list">
                 @foreach ($lectures as $lecture)
                     <div class="vid">
                         <video src="{{ Storage::url($lecture->video) }}" muted></video>
-                        <h5 class="title">{{ $lecture->title }} <br><small style="font-size: 12px;" class="text-end">uploaded by: {{ $lecture->name }}</small></h5>
+                        <h5 class="title">{{ $lecture->title }} <br><small style="font-size: 12px;" class="text-end">uploaded by: {{ $lecture->name ? $lecture->name : null  }}</small></h5>
+                        <a href="{{ route('lecture.download',$lecture->id) }}" class="icon"><i class="bx bx-download" style="font-size: 20px; float-right"></i></a>
                     </div>
                 @endforeach
                         <div class="pt-2" style="display: flex; justify-content: center;">
@@ -68,6 +72,7 @@
     let listVideo = document.querySelectorAll('.video-list .vid');
     let mainVideo = document.querySelector('.main-video video');
     let title     = document.querySelector('.main-video .title');
+    let icon      = document.querySelector('.main-video .icon')
 
     listVideo.forEach(video => {
         video.onclick = () =>{
@@ -79,6 +84,8 @@
                 mainVideo.src = src;
                 let text = video.children[1].innerHTML;
                 title.innerHTML = text;
+                let downloadIcon = video.children[2].innerHTML;
+                icon.innerHTML = downloadIcon;
             }
         }
     });
