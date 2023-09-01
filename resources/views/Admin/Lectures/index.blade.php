@@ -24,6 +24,37 @@
                 @endcan
             </div>
         </div>
+        <div class="row" style="margin-left: 35px">
+            <div class="col-11">
+                <div class="card">
+                    <div class="search-path p-3">
+                        <a class="btn btn-filter btn-success" id="filter_search">
+                            <img src="{{ asset('styles/assets/img/icons/filter.svg')}}" alt="img">
+                        </a>
+                    </div>
+                    <div class="card p-3" id="filter_inputs">
+                        <div class="card-body pb-0">
+                            <form action="{{ route('getSearch') }}" method="POST">
+                                @csrf
+                                @method('POST')
+                                <div class="row">
+                                    <div class="col-lg-11 col-sm-11 col-11">
+                                        <div class="form-group">
+                                            <input type="text" placeholder="Search" name="search">
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-1 col-sm-6 col-12 ms-auto">
+                                        <div class="form-group">
+                                            <button class="btn btn-filters ms-auto"><img src="{{ asset('styles/assets/img/icons/search-whites.svg')}}" alt="search image"></button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
         {{-- <div class="card">
             <div class="card-body"> --}}
                 <div class="container bordered">

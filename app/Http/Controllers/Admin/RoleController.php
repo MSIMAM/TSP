@@ -60,9 +60,8 @@ class RoleController extends Controller
         $role = Role::create(['name'=>$request->name, 'created_by'=>Auth::user()->name]);
 
         $role->syncPermissions($request->permissions);
-
-        toast('Role Created', 'success');
-        return redirect()->back();
+        // notify()->success('Role Created');
+        return redirect()->back()->with('message', 'Role Created Successfully');
     }
 
     /**
@@ -100,8 +99,8 @@ class RoleController extends Controller
     {
         $role->update(['name'=>$request->name]);
         $role->syncPermissions($request->permissions);
-        toast('Role Updated', 'success');
-        return redirect()->back();
+        // toast('Role Updated', 'success');
+        return redirect()->back()->with('message', 'Role Updated Successfully');
     }
 
     /**
@@ -113,7 +112,7 @@ class RoleController extends Controller
     public function destroy(Role $role)
     {
         $role->delete();
-        toast('Role Deleted', 'success');
-        return redirect()->back();
+        // toast('Role Deleted', 'success');
+        return redirect()->back()->with('message', 'Role Deleted Successfully');
     }
 }

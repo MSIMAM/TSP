@@ -25,7 +25,6 @@
         @include('includes.header2')
      {{--==============end include header =============--}}
 
-
         <div class="container">
             <div class="main-video">
                 <div class="video">
@@ -40,8 +39,12 @@
                 @foreach ($lectures as $lecture)
                     <div class="vid">
                         <video src="{{ Storage::url($lecture->video) }}" muted></video>
-                        <h5 class="title">{{ $lecture->title }} <br><small style="font-size: 12px;" class="text-end">uploaded by: {{ $lecture->name ? $lecture->name : null  }}</small></h5>
-                        <a href="{{ route('lecture.download',$lecture->id) }}" class="icon"><i class="bx bx-download" style="font-size: 20px; float-right"></i></a>
+                        <h5 class="title">{{ $lecture->title }} <br><small style="font-size: 12px;" class="text-end">uploaded by: </small></h5>
+                        <form action="{{ url('download',$lecture->id) }}" method="POST">
+                            @csrf
+                            @method('POST')
+                            {{-- <button><i class="bx bx-download" style="font-size: 20px; float-right"></i></button> --}}
+                        </form>
                     </div>
                 @endforeach
                         <div class="pt-2" style="display: flex; justify-content: center;">

@@ -183,7 +183,7 @@ return [
 
     'aliases' => Facade::defaultAliases()->merge([
         // 'Example' => App\Facades\Example::class,
-        'Alert' => RealRashid\SweetAlert\Alert::class,
+        // 'Alert' => RealRashid\SweetAlert\Alert::class,
     ])->toArray(),
 
 ];

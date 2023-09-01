@@ -39,8 +39,8 @@ class SchollarController extends Controller
             'uuid' => Str::orderedUuid(),
             'schollar_name' => $request->schollar_name
         ]);
-        toast('Schollar Created', 'success');
-        return to_route('schollar.index');
+        // toast('Schollar Created', 'success');
+        return to_route('schollar.index')->with('message', 'Schollar Created Successfully');
     }
 
     /**
@@ -69,8 +69,8 @@ class SchollarController extends Controller
             'schollar_name' => $request->schollar_name
         ]);
 
-        toast('Schollar updated', 'success');
-        return redirect()->back();
+        // toast('Schollar updated', 'success');
+        return redirect()->back()->with('message', 'Schollar Created Successfully');
     }
 
     /**
@@ -80,6 +80,6 @@ class SchollarController extends Controller
     {
         // $schollar->first();
         Schollar::where('id', $schollar->id)->delete();
-        return redirect()->back();
+        return redirect()->back()->with('message', 'Schollar Deleted Successfully');
     }
 }

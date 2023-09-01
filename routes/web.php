@@ -9,6 +9,7 @@ use App\Http\Controllers\Admin\RoleController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Admin\IndexController;
 use App\Http\Controllers\Auth\LoginControllers;
+use App\Http\Controllers\Admin\LecturesController;
 use App\Http\Controllers\Admin\PermissionController;
 
 
@@ -25,6 +26,7 @@ use App\Http\Controllers\Admin\PermissionController;
 */
 
 Route::get('/', function () {
+    notify()->success('welcome');    
     return view('welcome');
 });
 
@@ -39,7 +41,7 @@ Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('history', [FrontController::class, 'index'])->name('history');
 Route::get('lectures', [FrontController::class, 'lectures'])->name('lectures');
-Route::get('/lectures/{lecture}/download', [FrontController::class, 'downloadLecture'])->name('lecture.download');
+// Route::get('/lectures/{lecture}/download', [FrontController::class, 'downloadLecture'])->name('lecture.download');
 Route::get('index', [FrontController::class, 'home'])->name('index');
 Route::get('tidjaniya', [FrontController::class, 'tidjaniya'])->name('history-tidjaniya');
 Route::get('lineage', [FrontController::class, 'lineage'])->name('lineage');
@@ -103,3 +105,8 @@ Route::namespace('App\Http\Controllers\Admin')->name('admin.')->prefix('admin')-
             // Route::get('audio/{filename}', 'getAudios')->name('audio.display');
         });
         //=====================================End Audios Route======================================
+
+        Route::post('/download/{lecture}', [FrontController::class, 'download'])->name('download');
+
+        // ======================================= Search Controller ==================================
+        Route::post('/search', [LecturesController::class, 'search'])->name('getSearch');

@@ -30,6 +30,7 @@
   <link href="{{ asset('styles/assets/maincss/css/vendorStyle.css')}}" rel="stylesheet">
   <link href="{{ asset('styles/assets/maincss/demo.css')}}" rel="stylesheet">
   <link href="{{ asset('styles/assets/maincss/core.css')}}" rel="stylesheet">
+  @notifyCss
 </head>
 
 <body>
@@ -37,7 +38,9 @@
  {{--============== include header =============--}}
     @include('includes.header1')
  {{--==============end include header =============--}}
-
+    
+    
+    {{-- <x:notify-messages /> --}}
   <!-- ======= Hero Section ======= -->
   <section id="hero" class="hero d-flex align-items-center">
 
@@ -671,7 +674,7 @@
   </footer><!-- End Footer -->
 
   <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
-
+  @notifyJs
   <!-- Vendor JS Files -->
   <script src="{{ asset('styles/purecounter/purecounter_vanilla.js')}}"></script>
   <script src="{{ asset('styles/aos/aos.js')}}"></script>
@@ -685,6 +688,7 @@
 
   <!-- Website Main JS File -->
   <script src="{{ asset('styles/assets/mainjs/main.js')}}"></script>
+  
   @include('includes.myJsLinks')
 </body>
 

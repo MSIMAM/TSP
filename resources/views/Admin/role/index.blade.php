@@ -8,6 +8,7 @@
 @include('includes.header')
 
 @include('includes.main-sidebar')
+<x-notify::notify />
 <div class="page-wrapper">
     <div class="content">
             <div class="page-header">

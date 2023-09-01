@@ -20,6 +20,7 @@
     <script src="{{asset('styles/assets/js/jquery.slimscroll.min.js')}}"></script>
     <script src="{{asset('styles/assets/js/moment.min.js')}}"></script>
     <script src="{{asset('styles/assets/js/feather.min.js')}}"></script>
+    <script src="{{asset('styles/js/toastr.min.js')}}"></script>
 
 
 
@@ -27,3 +28,14 @@
 
     <script src="{{asset('styles/assets/js/script.js')}}"></script>
     {{--=================== end js links ========================--}}
+    {{-- @notifyJs --}}
+
+    @if (Session::has('message'))
+        <script>
+            toastr.options = {
+                "progressBar" : true,
+                "closeButton" : true,
+            }
+            toastr.success("{{ Session::get('message') }}");
+        </script>
+    @endif

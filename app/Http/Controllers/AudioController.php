@@ -51,7 +51,7 @@ class AudioController extends Controller
             'audio' => $request->file('audio')->store('public/storage/audios')
         ]);
 
-        return to_route('audios.index');
+        return to_route('audios.index')->with('message', 'Uploaded Successfully');
     }
 
 

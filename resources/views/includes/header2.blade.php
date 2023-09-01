@@ -1,5 +1,5 @@
   <!-- ======= Header ======= -->
-  <header id="header" class="header fixed-top">
+  <header id="header" class="header fixed-top ">
     <div class="container-fluid container-xl d-flex align-items-center justify-content-between">
 
       <a href="{{ route('index') }}" class="logo d-flex align-items-center">
@@ -31,7 +31,19 @@
               <li><a href="#">Drop Down 4</a></li>
             </ul>
           </li>
-          <li><a class="nav-link scrollto" href="#footer">Contact</a></li>
+          <li>
+            <div class="d-flex align-items-center">
+                <input type="text" placeholder="Search Here ...">
+                <div class="search-addon">
+                    <button><img src="{{ asset('styles/assets/img/icons/search.svg') }}" alt="img"></button>
+                </div>
+            </div>
+            <div class="">
+                <form action="#">
+
+                </form>
+            </div>
+          </li>
 
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>

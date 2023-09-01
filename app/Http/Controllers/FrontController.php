@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Http\Testing\File;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Storage;
 
 
 class FrontController extends Controller
@@ -30,7 +31,7 @@ class FrontController extends Controller
     public function lectures()
     {
         $lectures =  DB::table('lectures')
-        ->join('users', 'lectures.user_uuid', "=", 'users.uuid')
+        // ->join('users', 'lectures.user_uuid', "=", 'users.uuid')
         ->paginate(4);
 
         return view('pages.lectures', compact('lectures'));
@@ -73,12 +74,10 @@ class FrontController extends Controller
         return view('pages.faydha');
     }
 
-    public function downloadLecture(Lecture $lecture)
+    public function download(Lecture $lecture)
     {
-        return $lecture;
-        // $file = File::file_put_contents($lecture);
-
-        // return response()->download(asset($file->path), $file->filename);
+        // return 'ddd';
+        // return response()->download(public_path('/storage/videos/'.$lecture));
     }
 
     /**

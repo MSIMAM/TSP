@@ -42,8 +42,8 @@ class ProgrameController extends Controller
             'schollar_uuid'     => $request->schollar_uuid,
             'name'              => $request->name,
         ]);
-        toast('Programme Created', 'success');
-        return to_route('programe.index');
+        // toast('Programme Created', 'success');
+        return to_route('programe.index')->with('message', 'Programme Created Successfully');
     }
 
     /**
@@ -72,8 +72,8 @@ class ProgrameController extends Controller
             'name' => $request->name,
             'schollar_uuid'=>$request->schollar_uuid
         ]);
-        toast('Programe updated', 'success');
-        return redirect()->back();
+        // toast('Programe updated', 'success');
+        return redirect()->back()->with('message', 'Programme Updated Successfully');
     }
 
     /**
@@ -82,8 +82,8 @@ class ProgrameController extends Controller
     public function destroy(Programe $programe)
     {
         return $programe;
-        toast('Programe deleted', 'success');
-        return redirect()->back();
+        // toast('Programe deleted', 'success');
+        return redirect()->back()->with('message', 'Programme Deleted Successfully');
 
     }
 }

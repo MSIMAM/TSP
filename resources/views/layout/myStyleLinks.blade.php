@@ -16,13 +16,16 @@
     <link rel="stylesheet" href="{{asset('styles/assets/plugins/toastr/toatr.css')}}">
     <link rel="stylesheet" href="{{asset('styles/assets/css/style.css')}}">
     <link rel="stylesheet" href="{{asset('styles/assets/maincss/vidstyle.css')}}">
+    <link rel="stylesheet" href="{{asset('styles/css/toastr.min.css')}}">
     {{-- <link rel="stylesheet" href="{{asset('styles/core.css')}}"> --}}
-
+    {{-- @notifyCss --}}
     {{--================= end style links ==============--}}
     <title></title>
 </head>
 <body>
-    @include('sweetalert::alert')
+
+    @include('notify::components.notify')
+    {{-- @include('sweetalert::alert') --}}
 
 
 </body>

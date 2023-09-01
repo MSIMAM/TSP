@@ -59,10 +59,24 @@ class LecturesController extends Controller
             'title' => $request->title,
             'video' => $request->file('video')->store('public/storage/videos'),
         ]);
-        toast('Upload Success', 'success');
-        return redirect()->back();
+        // toast('Upload Success', 'success');
+        return redirect()->back()->with('message', 'Uploaded Successfully');
 
         // return $request;
+    }
+
+    public function search(Request $request)
+    {
+        $search = ($request->search != null) ? $request->search : null;
+        $searchs = Lecture::select('video')->when($search ?? null, function($query, $search){
+            $query->where('title', 'like', '%'. $search . '%');
+        })->get();
+
+            return view('Admin.Lectures.search', [
+                'results' => $searchs
+            ]);
+
+
     }
 
     /**
