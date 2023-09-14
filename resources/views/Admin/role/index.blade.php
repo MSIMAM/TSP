@@ -8,7 +8,7 @@
 @include('includes.header')
 
 @include('includes.main-sidebar')
-<x-notify::notify />
+
 <div class="page-wrapper">
     <div class="content">
             <div class="page-header">
@@ -101,7 +101,7 @@
 
                                         </td>
                                     </tr>
-                                      {{-- role create modal --}}
+                                      {{-- role edit modal --}}
                                         <div id="edit_role{{$role->id}}" class="modal custom-modal fade" role="dialog">
                                             <div class="modal-dialog modal-dialog-centered modal-md" role="document">
                                             <div class="modal-content">
@@ -148,7 +148,7 @@
                                             </div>
                                             </div>
                                         </div>
-                                    {{-- end of role create modal --}}
+                                    {{-- end of role edit modal --}}
                                 @endforeach
                                 @endcan
                             </tbody>
@@ -179,19 +179,17 @@
                       <input class="form-control" name="name" value="{{ old('name')}}" type="text">
                     </div>
                   </div>
-                  <h3 class="text-xl my-4 text-gray-600">Permissions</h3>
-                    <div class="grid grid-cols-3 gap-4">
-                        @foreach($permissions as $permission)
-                            <div class="d-flex flex-col justify-items-center">
-                                <div class="d-flex col-sm-8">
-                                    <label class="inline-flex items-center mt-3">
-                                        <input type="checkbox" class="form-checkbox h-5 w-5 text-blue-600" name="permissions[]" value="{{$permission->id}}"
-                                        ><span class="ml-2 text-gray-700">{{ $permission->name }}</span>
-                                    </label>
-                                </div>
-                            </div>
-                        @endforeach
-                    </div>
+                        <h3 class="text-xl my-4 text-gray-600">Permissions</h3>
+                       <div class="row">
+                        <div class="form-group">
+                            @foreach($permissions as $permission)
+                                        <label class="inline-flex items-center mt-3" style="display: inline-flex; align-items:center;">
+                                            <input type="checkbox" class="form-checkbox h-5 w-5 text-blue-600" name="permissions[]" value="{{$permission->id}}"
+                                            ><span class="ml-2 text-gray-700">{{ $permission->name }}</span>
+                                        </label>
+                            @endforeach
+                        </div>
+                       </div>
                     <div class="mt-3">
                       <button type="submit" class="btn float-right px-5 py-1 rounded btn-success">Submit</button>
                     </div>

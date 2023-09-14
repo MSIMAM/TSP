@@ -9,7 +9,6 @@
     @include('includes.header')
 
     @include('includes.main-sidebar')
-    @include('toastr')
     <div class="page-wrapper">
         <div class="content">
             @if (session('status'))

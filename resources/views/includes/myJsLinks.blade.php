@@ -15,7 +15,7 @@
     <script src="{{asset('styles/assets/plugins/toastr/toastr.js')}}"></script>
     <script src="{{asset('styles/assets/plugins/apexchart/apexcharts.min.js')}}"></script>
     <script src="{{asset('styles/assets/plugins/apexchart/chart-data.js')}}"></script>
-    <script src="{{ asset('styles/js/bootstrap.bundle.min.js') }}"></script>
+    <script src="{{asset('styles/js/bootstrap.bundle.min.js')}}"></script>
     <script src="{{asset('styles/assets/plugins/fileupload/fileupload.min.js')}}"></script>
     <script src="{{asset('styles/assets/js/jquery.slimscroll.min.js')}}"></script>
     <script src="{{asset('styles/assets/js/moment.min.js')}}"></script>

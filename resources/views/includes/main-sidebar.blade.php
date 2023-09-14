@@ -3,7 +3,7 @@
         <div id="sidebar-menu" class="sidebar-menu">
             <ul>
 
-                <li class="active">
+                <li class="{{ Route::currentRouteNamed('admin.index') ? 'active' : '' }}">
                     <a href="{{route('admin.index')}}"><img src="{{asset('styles/assets/img/icons/dashboard.svg')}}" alt="img"><span> Dashboard</span> </a>
                 </li>
                 <li class="submenu">

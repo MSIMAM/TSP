@@ -26,7 +26,6 @@ use App\Http\Controllers\Admin\PermissionController;
 */
 
 Route::get('/', function () {
-    notify()->success('welcome');    
     return view('welcome');
 });
 
@@ -34,18 +33,22 @@ Route::get('/', function () {
    //======================= login controlller =======================
    Route::get('/login', [LoginControllers::class, 'login'])->name('front');
    Route::post('redirect', [LoginControllers::class, 'authenticate'])->name('authenticate.login');
-//========================== end login routes ==============================================
-Auth::routes();
+   //========================== end login routes ==============================================
+
+   //========================== Start Auth Route ===================================
+        Auth::routes();
+   //========================== End Auth Route ===================================
+
 
 //=============================== front routes ==========================
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-Route::get('history', [FrontController::class, 'index'])->name('history');
-Route::get('lectures', [FrontController::class, 'lectures'])->name('lectures');
+Route::get('/history', [FrontController::class, 'index'])->name('history');
+Route::get('/lectures', [FrontController::class, 'lectures'])->name('lectures');
 // Route::get('/lectures/{lecture}/download', [FrontController::class, 'downloadLecture'])->name('lecture.download');
-Route::get('index', [FrontController::class, 'home'])->name('index');
-Route::get('tidjaniya', [FrontController::class, 'tidjaniya'])->name('history-tidjaniya');
-Route::get('lineage', [FrontController::class, 'lineage'])->name('lineage');
-Route::get('faydha', [FrontController::class, 'faydha'])->name('faydha');
+Route::get('/index', [FrontController::class, 'home'])->name('index');
+Route::get('/tidjaniya', [FrontController::class, 'tidjaniya'])->name('history-tidjaniya');
+Route::get('/lineage', [FrontController::class, 'lineage'])->name('lineage');
+Route::get('/faydha', [FrontController::class, 'faydha'])->name('faydha');
 Route::get('/audios/list', [FrontController::class, 'getAudios'])->name('audios.getList');
 
 //===============================end front routes ==========================

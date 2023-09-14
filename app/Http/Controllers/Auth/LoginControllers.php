@@ -27,9 +27,8 @@ class LoginControllers extends Controller
         $password   = $request->password;
 
         if (Auth::attempt(['email' => $email, 'password' => $password, 'status' => 'Active'])) {
-            // toast('Welcome '.Auth::user()->name.'', 'success');
-            // notify()->success('Welcome '.Auth::user()->name.'');
-            return redirect(RouteServiceProvider::HOME)->with('message', 'Welcome '.Auth::user()->name.'');
+            session('message', 'Welcome '.Auth::user()->name.'');
+            return redirect(RouteServiceProvider::HOME);
         }else {
             toast('Error Login', 'error');
             return redirect()->back();
