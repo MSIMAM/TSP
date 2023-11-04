@@ -12,8 +12,6 @@ use App\Http\Controllers\Auth\LoginControllers;
 use App\Http\Controllers\Admin\LecturesController;
 use App\Http\Controllers\Admin\PermissionController;
 
-
-
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -76,6 +74,7 @@ Route::namespace('App\Http\Controllers\Admin')->name('admin.')->prefix('admin')-
         Route::put('update', [IndexController::class, 'update'])->name('update');
         Route::get('/users/{user}/delete', [UserController::class, 'destroy'])->name('user.destroy');
         //================End fetching users record==============================================
+        Route::post('/search', [LecturesController::class, 'search'])->name('getSearch');
 
 
 });
@@ -109,7 +108,7 @@ Route::namespace('App\Http\Controllers\Admin')->name('admin.')->prefix('admin')-
         });
         //=====================================End Audios Route======================================
 
-        Route::post('/download/{lecture}', [FrontController::class, 'download'])->name('download');
+        // Route::post('/download/{lecture}', [FrontController::class, 'download'])->name('download');
 
         // ======================================= Search Controller ==================================
-        Route::post('/search', [LecturesController::class, 'search'])->name('getSearch');
+        Route::post('/search?query', [FrontController::class, 'getSearch'])->name('search.query');

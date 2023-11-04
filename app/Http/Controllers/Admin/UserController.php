@@ -40,14 +40,13 @@ class UserController extends Controller
     public function updateStatus(Request $request, User $user)
     {
 
+        // return $request;
         $user->roles;
         $user = User::where('id', $request->id)->update([
             'status' => $request->status
         ]);
-        // $user->syncRoles($request->roles);
-
-        toast('Status Changed', 'success');
-        return redirect()->back();
+            // $user->syncRoles($request->roles);
+        return redirect()->back()->with('message', 'Status change');
     }
 
     /**
@@ -84,8 +83,7 @@ class UserController extends Controller
             'status'=>'Active'
         ]);
         $user->syncRoles($request->roles);
-        toast('User Created', 'success');
-        return redirect()->back();
+        return redirect()->back()->with('message', 'User created successfully');
     }
 
     /**
@@ -138,8 +136,7 @@ class UserController extends Controller
         }
 
         $user->update($validated);
-        toast('Profile Updated', 'success');
-        return redirect()->back();
+        return redirect()->back()->with('message', 'Profile updated successfully');
     }
 
     /**
@@ -151,7 +148,6 @@ class UserController extends Controller
     public function destroy(Role $role, User $user)
     {
         $user->delete();
-        toast('User Deleted', 'success');
-        return redirect()->back();
+        return redirect()->back()->with('message', 'User deleted successfully');
     }
 }

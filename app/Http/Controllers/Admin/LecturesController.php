@@ -10,6 +10,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
+use App\Http\Requests\lectureRequest;
 
 class LecturesController extends Controller
 {
@@ -23,10 +24,9 @@ class LecturesController extends Controller
                             //->paginate(4);
 
         $lectures =  DB::table('lectures')
-         ->join('users', 'lectures.user_uuid', "=", 'users.uuid')
-        ->paginate(4);
-
-        return view('Admin.Lectures.index', compact('lectures'));
+                        ->join('users', 'lectures.user_uuid', "=", 'users.uuid')
+                        ->paginate(4);
+                        return view('Admin.Lectures.index', compact('lectures'));
     }
 
     /**
@@ -42,27 +42,15 @@ class LecturesController extends Controller
      * Store a newly created resource in storage.
      */
 
-    public function store(Request $request)
+    public function store(lectureRequest $request)
     {
-
-         $request->validate([
-            // 'uuid' => Str::orderedUuid(),
-            'title' => 'required|max:20',
-            'video' => 'required',
-        ]);
-
-
-
         Lecture::create([
             'uuid' => Str::orderedUuid(),
             'user_uuid' => Auth::user()->uuid,
             'title' => $request->title,
             'video' => $request->file('video')->store('public/storage/videos'),
         ]);
-        // toast('Upload Success', 'success');
-        return redirect()->back()->with('message', 'Uploaded Successfully');
-
-        // return $request;
+        return view('Admin.Lectures.index')->with('message', 'Uploaded Successfully');
     }
 
     public function search(Request $request)

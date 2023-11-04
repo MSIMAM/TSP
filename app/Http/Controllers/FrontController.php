@@ -80,6 +80,21 @@ class FrontController extends Controller
         // return response()->download(public_path('/storage/videos/'.$lecture));
     }
 
+    public function getSearch(Request $request)
+    {
+        return $request;
+        // $search = ($request->search != null) ? $request->search : null;
+        // $searchs = Lecture::select('video')->when($search ?? null, function($query, $search){
+        //     $query->where('title', 'like', '%'. $search . '%');
+        // })->get();
+
+        //     return view('pages.search', [
+        //         'results' => $searchs
+        //     ]);
+
+
+    }
+
     /**
      * Update the specified resource in storage.
      */

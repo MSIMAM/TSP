@@ -15,21 +15,22 @@
   <link href="{{ asset('styles/assets/maincss/core.css')}}" rel="stylesheet">
 
  {{--============== include header =============--}}
-    @include('includes.header2')
+    @include('includes.header1')
  {{--==============end include header =============--}}
+  {{--============== include header =============--}}
+  @include('includes.sidebar')
+  {{--==============end include header =============--}}
 
 <div id="main">
     <!-- ======= Breadcrumbs ======= -->
-<section class="breadcrumbs">
-  <div class="container">
+{{-- <section class="breadcrumbs mb-4">
 
     <ol>
       <li><a href="{{ route('index') }}">Home</a></li>
       <li>History Of Sidi Ahmed Tidjani</li>
     </ol>
 
-  </div>
-</section><!-- End Breadcrumbs -->
+</section><!-- End Breadcrumbs --> --}}
 
     <div class="container">
         <p>History:</p>

@@ -100,7 +100,9 @@ class PermissionController extends Controller
      */
     public function update(Request $request, Permission $permission)
     {
-        $permission->update(['name'=>$request->name]);
+        $permission->update([
+            'name'=>$request->name
+        ]);
         return redirect()->back()->with('message', 'Permission Updated Successfully');
     }
 

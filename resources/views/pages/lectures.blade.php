@@ -4,81 +4,114 @@
     <div class="whirly-loader"> </div>
 </div>
 <!-- Vendor CSS Files -->
-<link href="{{ asset('styles/assets/aos/aos.css')}}" rel="stylesheet">
-<link rel="stylesheet" href="{{asset('styles/assets/maincss/css/bootstrap.min.css')}}">
+<link href="{{ asset('styles/assets/aos/aos.css') }}" rel="stylesheet">
+<link rel="stylesheet" href="{{ asset('styles/assets/maincss/css/bootstrap.min.css') }}">
 {{-- <link href="{{ asset('styles/assets/bootstrap/css/bootstrap.min.css')}}" rel="stylesheet"> --}}
-<link href="{{ asset('styles/assets/bootstrap-icons/bootstrap-icons.css')}}" rel="stylesheet">
-<link href="{{ asset('styles/glightbox/css/glightbox.min.css')}}" rel="stylesheet">
-<link href="{{ asset('styles/remixicon/remixicon.css')}}" rel="stylesheet">
-<link href="{{ asset('styles/swiper/swiper-bundle.min.css')}}" rel="stylesheet">
-<link rel="stylesheet" href="{{ asset('styles/boxicons/css/boxicons.min.css')}}">
+<link href="{{ asset('styles/assets/bootstrap-icons/bootstrap-icons.css') }}" rel="stylesheet">
+<link href="{{ asset('styles/glightbox/css/glightbox.min.css') }}" rel="stylesheet">
+<link href="{{ asset('styles/remixicon/remixicon.css') }}" rel="stylesheet">
+<link href="{{ asset('styles/swiper/swiper-bundle.min.css') }}" rel="stylesheet">
+<link rel="stylesheet" href="{{ asset('styles/boxicons/css/boxicons.min.css') }}">
 
 <!-- Template Main CSS File -->
-<link href="{{ asset('styles/assets/maincss/style.css')}}" rel="stylesheet">
-<link href="{{ asset('styles/assets/maincss/css/vendorStyle.css')}}" rel="stylesheet">
-<link href="{{ asset('styles/assets/maincss/demo.css')}}" rel="stylesheet">
-<link href="{{ asset('styles/assets/maincss/core.css')}}" rel="stylesheet">
+<link href="{{ asset('styles/assets/maincss/style.css') }}" rel="stylesheet">
+{{-- <link href="{{ asset('styles/assets/maincss/css/vendorStyle.css') }}" rel="stylesheet"> --}}
+<link href="{{ asset('styles/assets/maincss/demo.css') }}" rel="stylesheet">
+<link href="{{ asset('styles/assets/maincss/core.css') }}" rel="stylesheet">
 
 
 
-     {{--============== include header =============--}}
-        @include('includes.header2')
-     {{--==============end include header =============--}}
+{{-- ============== include header ============= --}}
+@include('includes.header1')
+{{-- ==============end include header ============= --}}
 
-        <div class="container">
-            <div class="main-video">
-                <div class="video">
-                    <video src="{{ asset('styles/assets/videos/bbc.mp4')}}" controls autoplay></video>
-                        <div class="d-flex align-items-center border-top m-2">
-                            <h3 class="title">Ziyarar BBC Hausa A Raudar Sheikh Tidjani Dake Fez Morocco</h3>
-                            <a href="" class="icon"><i class="bx bx-download" style="font-size: 20px; float-right"></i></a>
+{{-- ============== include sidebar ============= --}}
+@include('includes.sidebar')
+{{-- ==============end include sidebar ============= --}}
+
+<div class="row" style="padding-top: 6rem; width: 94%; margin: auto; padding-left: 80px">
+    <div class="col-11">
+        <div class="card">
+            <div class="search-path p-3">
+                <a class="btn btn-filter btn-success" id="filter_search">
+                    <img src="{{ asset('styles/assets/img/icons/filter.svg') }}" alt="img">
+                </a>
+            </div>
+            <div class="card p-3" id="filter_inputs">
+                <div class="card-body pb-0">
+                    <form action="{{ route('search.query') }}" method="POST">
+                        @csrf
+                        @method('POST')
+                        <div class="row">
+                            <div class="col-lg-11 col-sm-11 col-11">
+                                <div class="form-group">
+                                    <input type="text" placeholder="Search" name="search">
+                                </div>
+                            </div>
+                            <div class="col-lg-1 col-sm-6 col-12 ms-auto">
+                                <div class="form-group">
+                                    <button class="btn btn-filters ms-auto"><img
+                                            src="{{ asset('styles/assets/img/icons/search-whites.svg') }}"
+                                            alt="search image"></button>
+                                </div>
+                            </div>
                         </div>
+                    </form>
                 </div>
             </div>
-            <div class="video-list">
-                @foreach ($lectures as $lecture)
-                    <div class="vid">
-                        <video src="{{ Storage::url($lecture->video) }}" muted></video>
-                        <h5 class="title">{{ $lecture->title }} <br><small style="font-size: 12px;" class="text-end">uploaded by: </small></h5>
-                        <form action="{{ url('download',$lecture->id) }}" method="POST">
-                            @csrf
-                            @method('POST')
-                            {{-- <button><i class="bx bx-download" style="font-size: 20px; float-right"></i></button> --}}
-                        </form>
-                    </div>
-                @endforeach
-                        <div class="pt-2" style="display: flex; justify-content: center;">
-                            {{ $lectures->links() }}
-                        </div>
-
-
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div class="main-video">
+        <div class="video">
+            <video src="{{ asset('styles/assets/videos/bbc.mp4') }}" controls autoplay></video>
+            <div class="d-flex align-items-center border-top m-2">
+                <h3 class="title">Ziyarar BBC Hausa A Raudar Sheikh Tidjani Dake Fez Morocco</h3>
+                <a href="" class="icon"><i class="bx bx-download" style="font-size: 20px; float-right"></i></a>
             </div>
-
+        </div>
+    </div>
+    <div class="video-list">
+        @foreach ($lectures as $lecture)
+            <div class="vid">
+                <video src="{{ Storage::url($lecture->video) }}" muted></video>
+                <h5 class="title">{{ $lecture->title }} <br><small style="font-size: 12px;" class="text-end">uploaded
+                        by: </small></h5>
+            </div>
+        @endforeach
+        <div class="pt-2" style="display: flex; justify-content: center;">
+            {{ $lectures->links() }}
         </div>
 
 
+    </div>
+
+</div>
+
+
 <!-- Vendor JS Files -->
-<script src="{{ asset('styles/purecounter/purecounter_vanilla.js')}}"></script>
-<script src="{{ asset('styles/aos/aos.js')}}"></script>
-<script src="{{ asset('styles/assets/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
-<script src="{{ asset('styles/glightbox/js/glightbox.min.js')}}"></script>
-<script src="{{ asset('styles/isotope-layout/isotope.pkgd.min.js')}}"></script>
-<script src="{{ asset('styles/swiper/swiper-bundle.min.js')}}"></script>
+<script src="{{ asset('styles/purecounter/purecounter_vanilla.js') }}"></script>
+<script src="{{ asset('styles/aos/aos.js') }}"></script>
+<script src="{{ asset('styles/assets/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+<script src="{{ asset('styles/glightbox/js/glightbox.min.js') }}"></script>
+<script src="{{ asset('styles/isotope-layout/isotope.pkgd.min.js') }}"></script>
+<script src="{{ asset('styles/swiper/swiper-bundle.min.js') }}"></script>
 {{-- <script src="{{ asset('styles/assets/php-email-form/validate.js')}}"></script> --}}
-<script src="{{ asset('styles/jquery/jquery.slim.min.js')}}"></script>
-<script src="{{ asset('styles/assets/js/popper.min.js')}}"></script>
-<script src="{{ asset('styles/assets/js/bootstrap.min.js')}}"></script>
+<script src="{{ asset('styles/jquery/jquery.slim.min.js') }}"></script>
+<script src="{{ asset('styles/assets/js/popper.min.js') }}"></script>
+<script src="{{ asset('styles/assets/js/bootstrap.min.js') }}"></script>
 
 <!-- Website Main JS File -->
-<script src="{{ asset('styles/assets/mainjs/main.js')}}"></script>
+<script src="{{ asset('styles/assets/mainjs/main.js') }}"></script>
 <script>
     let listVideo = document.querySelectorAll('.video-list .vid');
     let mainVideo = document.querySelector('.main-video video');
-    let title     = document.querySelector('.main-video .title');
-    let icon      = document.querySelector('.main-video .icon')
+    let title = document.querySelector('.main-video .title');
+    let icon = document.querySelector('.main-video .icon')
 
     listVideo.forEach(video => {
-        video.onclick = () =>{
+        video.onclick = () => {
             listVideo.forEach(vid => vid.classList.remove('active'));
             video.classList.add('active');
 
