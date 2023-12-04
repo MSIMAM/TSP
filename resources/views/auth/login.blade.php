@@ -15,7 +15,7 @@
                     <div class="app-brand justify-content-center">
                         <a href="index.html" class="app-brand-link gap-2">
                             <span class="app-brand-logo demo">
-                                <img src="{{ asset('styles/assets/img/logo.png') }}" width="50px" height="50px"
+                                <img src="{{ asset('styles/assets/img/logo.jpg') }}" width="50px" height="50px"
                                     alt="tijjaniyya sufi path logo">
                             </span>
                             <span class="app-brand-text demo text-body fw-bolder">Tidjaniya Sufi Path</span>

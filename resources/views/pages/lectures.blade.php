@@ -28,65 +28,20 @@
 {{-- ============== include sidebar ============= --}}
 @include('includes.sidebar')
 {{-- ==============end include sidebar ============= --}}
+<div style="margin-top: 6rem">
 
-<div class="row" style="padding-top: 6rem; width: 94%; margin: auto; padding-left: 80px">
-    <div class="col-11">
-        <div class="card">
-            <div class="search-path p-3">
-                <a class="btn btn-filter btn-success" id="filter_search">
-                    <img src="{{ asset('styles/assets/img/icons/filter.svg') }}" alt="img">
-                </a>
-            </div>
-            <div class="card p-3" id="filter_inputs">
-                <div class="card-body pb-0">
-                    <form action="{{ route('search.query') }}" method="POST">
-                        @csrf
-                        @method('POST')
-                        <div class="row">
-                            <div class="col-lg-11 col-sm-11 col-11">
-                                <div class="form-group">
-                                    <input type="text" placeholder="Search" name="search">
-                                </div>
-                            </div>
-                            <div class="col-lg-1 col-sm-6 col-12 ms-auto">
-                                <div class="form-group">
-                                    <button class="btn btn-filters ms-auto"><img
-                                            src="{{ asset('styles/assets/img/icons/search-whites.svg') }}"
-                                            alt="search image"></button>
-                                </div>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
 </div>
-<div class="container">
-    <div class="main-video">
-        <div class="video">
-            <video src="{{ asset('styles/assets/videos/bbc.mp4') }}" controls autoplay></video>
-            <div class="d-flex align-items-center border-top m-2">
-                <h3 class="title">Ziyarar BBC Hausa A Raudar Sheikh Tidjani Dake Fez Morocco</h3>
-                <a href="" class="icon"><i class="bx bx-download" style="font-size: 20px; float-right"></i></a>
-            </div>
-        </div>
-    </div>
-    <div class="video-list">
-        @foreach ($lectures as $lecture)
-            <div class="vid">
-                <video src="{{ Storage::url($lecture->video) }}" muted></video>
-                <h5 class="title">{{ $lecture->title }} <br><small style="font-size: 12px;" class="text-end">uploaded
-                        by: </small></h5>
+<div class="container-fluid mt-3 bg-light">
+    <div class="row">
+        @foreach ($videoLists as $video)
+            <div class="col-4 mt-3">
+                <iframe height="300px" width="380px" src="https://www.youtube.com/embed/{{ $video->id->videoId }}"
+                    allowfullscreen></iframe>
+                <h5 class="title">{{ $video->snippet->title }}</h5>
+                <p>{{ $video->snippet->description }}</p>
             </div>
         @endforeach
-        <div class="pt-2" style="display: flex; justify-content: center;">
-            {{ $lectures->links() }}
-        </div>
-
-
     </div>
-
 </div>
 
 

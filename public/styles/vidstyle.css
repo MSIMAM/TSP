@@ -19,7 +19,7 @@
     border-radius: 5px;
     padding: 10px;
   }
-  .container .main-video video{
+  .container .main-video iframe{
     width: 100%;
     border-radius: 5px;
     cursor: pointer;
@@ -79,7 +79,7 @@
   .container .video-list .vid .btns{
     display: inline-block;
   }
-  .container .video-list .vid video{
+  .container .video-list .vid iframe{
     width: 100px;
     border-radius: 5px;
     height: 100px;
@@ -96,13 +96,13 @@
     .container{
       grid-template-columns: 1fr;
     }
-    .container .main-video video{
+    .container .main-video iframe{
       height: 200px!important;
     }
     .container .main-video .title{
       font-size: 20px;
     }
-    .container .video-list .vid video{
+    .container .video-list .vid iframe{
       height: 80px;
     }
     .container .main-video .title{

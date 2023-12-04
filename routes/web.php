@@ -43,7 +43,7 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::get('/history', [FrontController::class, 'index'])->name('history');
 Route::get('/lectures', [FrontController::class, 'lectures'])->name('lectures');
 // Route::get('/lectures/{lecture}/download', [FrontController::class, 'downloadLecture'])->name('lecture.download');
-Route::get('/index', [FrontController::class, 'home'])->name('index');
+Route::get('', [FrontController::class, 'home'])->name('index');
 Route::get('/tidjaniya', [FrontController::class, 'tidjaniya'])->name('history-tidjaniya');
 Route::get('/lineage', [FrontController::class, 'lineage'])->name('lineage');
 Route::get('/faydha', [FrontController::class, 'faydha'])->name('faydha');

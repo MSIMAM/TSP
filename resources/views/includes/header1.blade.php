@@ -3,7 +3,7 @@
       <div class="container-fluid container-xl d-flex align-items-center justify-content-between">
 
           <a href="{{ route('index') }}" class="logo d-flex align-items-center">
-              <img src="{{ asset('styles/assets/img/logo.png') }}" alt="">
+              <img src="{{ asset('styles/assets/img/logo.jpg') }}" alt="">
               <span>Tidjaniya</span>
           </a>
 

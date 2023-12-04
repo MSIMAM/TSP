@@ -3,10 +3,10 @@
      <div class="header-left active">
          <a href="{{ route('home') }}" class="logo">
              {{-- ============ logo image ============ --}}
-             <img src="{{ asset('styles/assets/img/logo.png') }}" style="width: 50px; height: 50px" alt="">
+             <img src="{{ asset('styles/assets/img/logo.jpg') }}" style="width: 50px; height: 50px" alt="">
          </a>
          <a href="{{ route('home') }}" class="logo-small">
-             <img src="{{ asset('styles/assets/img/logo.png') }}" alt="">
+             <img src="{{ asset('styles/assets/img/logo.jpg') }}" alt="">
          </a>
          <p class="pt-1" style="font-weight: bold;">Maghrebb</p>
          <a id="toggle_btn" href="javascript:void(0);">

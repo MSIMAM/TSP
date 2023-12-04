@@ -6,6 +6,7 @@ use App\Models\Lecture;
 use Illuminate\Http\Request;
 use Illuminate\Http\Testing\File;
 use Illuminate\Support\Facades\DB;
+use Alaouy\Youtube\Facades\Youtube;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Storage;
 
@@ -30,12 +31,27 @@ class FrontController extends Controller
      */
     public function lectures()
     {
-        $lectures =  DB::table('lectures')
-        // ->join('users', 'lectures.user_uuid', "=", 'users.uuid')
-        ->paginate(4);
 
-        return view('pages.lectures', compact('lectures'));
+        $videoLists = Youtube::listChannelVideos('UC50Cr5GFxVg8dRYD-8i12mQ', 50);
+        return view('pages.lectures', compact('videoLists'));
+
+
     }
+
+    public function listChannelVideos($channelId, $maxResults = 10, $order = null, $part = ['id', 'snippet'], $pageInfo = false)
+    {
+        $params = array(
+            'type' => 'video',
+            'channelId' => $channelId,
+            'part' => implode(', ', $part),
+            'maxResults' => $maxResults,
+        );
+        if (!empty($order)) {
+            $params['order'] = $order;
+        }
+        return $this->searchAdvanced($params, $pageInfo);
+    }
+
 
     public function getAudios()
     {
